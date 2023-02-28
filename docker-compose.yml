@@ -7,7 +7,19 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=ak
       - MONGO_INITDB_ROOT_PASSWORD=ak
-#  backend:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:80"
+    volumes:
+      - data:/app/logs # volume for logs
+      - ./backend:/app # bind mount
+      - /app/node_modules # anonymous volume
+    environment:
+      - MONGODB_USERNAME=ak
+      - MONGODB_PASSWORD=ak
+    depends_on:
+      - mongodb
 
 #  frontend:
 
