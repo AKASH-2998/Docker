@@ -14,7 +14,7 @@ function App() {
       setIsLoading(true);
 
       try {
-        const response = await fetch('http://13.233.159.77:1010/goals');
+        const response = await fetch('http://localhost:1010/goals');
 
         const resData = await response.json();
 
