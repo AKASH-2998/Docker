@@ -14,7 +14,7 @@ function App() {
       setIsLoading(true);
 
       try {
-        const response = await fetch('http://localhost:1010/goals');
+        const response = await fetch('http://localhost/goals');
 
         const resData = await response.json();
 
