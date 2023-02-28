@@ -7,6 +7,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=ak
       - MONGO_INITDB_ROOT_PASSWORD=ak
+  
   backend:
     build: ./backend
     ports:
@@ -21,7 +22,16 @@ services:
     depends_on:
       - mongodb
 
-#  frontend:
+  frontend:
+    build: ./frontend
+    ports:
+      -"3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
 
 
 
